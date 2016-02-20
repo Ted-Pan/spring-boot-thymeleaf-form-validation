@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+	<head th:replace="fragments/header :: common-header">
+	</head>
+	<body>
+	    <div th:replace="fragments/header :: header"></div>
+        <div class="container">
+            <div class="row view-area">
+                <div class="col-lg-12">
+                    <form role="form" name="albumAddForm" th:object="${album}" th:action="@{/add}" method="post">
+                        <div class="row form-group">
+                            <div class="col-lg-6">
+                               <label for="title" class="sr-only">Album Title</label>
+        	                   <input type="text" name="title" id="title" class="form-control" placeholder="Album Title" required="required" autofocus="autofocus" />
+                            </div>
+                            <div class="col-lg-4">
+                                <span class="label label-danger" th:if="${#fields.hasErrors('title')}" th:errors="*{title}">Title Name Error</span>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-lg-6">
+                               <label for="artist" class="sr-only">Age</label>
+                               <input type="text" name="artist" id="artist" class="form-control" placeholder="Artist" required="required" />
+                            </div>
+                            <div class="col-lg-4">
+                                <span class="label label-danger" th:if="${#fields.hasErrors('artist')}" th:errors="*{artist}">Artist Name Error</span>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-lg-6">
+                               <label for="price" class="sr-only">Price</label>
+                               <input type="text" name="price" id="price" class="form-control" placeholder="Price" required="required" />
+                            </div>
+                             <div class="col-lg-4">
+                                <span class="label label-danger" th:if="${#fields.hasErrors('price')}" th:errors="*{price}">Price Value Error</span>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-lg-10">
+                                <button class="btn btn-lg btn-primary" type="submit">
+                                    Save Album
+                                </button>
+                                <button class="btn btn-lg btn-default" type="reset">
+                                    Reset
+                                </button>
+                                <a class="btn btn-lg btn-default" role="button" th:href="@{/}">
+                                    Cancel
+                                </a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+	 	<div th:replace="fragments/footer :: footer"></div>
+	</body>
+</html>

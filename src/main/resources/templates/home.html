@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+	<head th:replace="fragments/header :: common-header">
+	</head>
+	<body>
+	    <div th:replace="fragments/header :: header"></div>
+            <div class="container">
+                <div class="row view-area">
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 col-md-6">
+                        <a class="btn btn-lg btn-primary" th:href="@{/add}">
+                            Add Album
+                        </a>
+                        <a class="btn btn-lg btn-default" th:href="@{/view}">
+                            View Albums
+                        </a>
+                    </div>
+                </div>
+            </div>
+	 	<div th:replace="fragments/footer :: footer"></div>
+	</body>
+</html>
